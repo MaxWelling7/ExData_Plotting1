@@ -9,13 +9,7 @@ hpc <- cbind(DateTime = strptime(paste(hpc$Date,hpc$Time),"%d/%m/%Y %H:%M:%S"),h
 hpc[,2:ncol(hpc)] <- sapply(hpc[,2:ncol(hpc)],as.numeric)
 
 
-# Create the first plot: frequency of global power consumption
+# Create the first plot: histogram od frequency of global power consumption
 png(filename = "plot1.png",width = 480,height = 480)
 hist(hpc$Global_active_power, xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col = "red", main="Global Active Power")
 dev.off()
-
-# Create the first plot: frequency of global power consumption
-png(filename = "plot2.png",width = 480,height = 480)
-plot(hpc$DateTime, hpc$Global_active_power, xlab = "", ylab = "Global Active Power (kilowatts)", type = "l")
-dev.off()
-
